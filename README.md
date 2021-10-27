@@ -137,7 +137,7 @@ Basic Usage
 Launch the simulator with a hex-rotor helicopter model, in our case, the AscTec Firefly in a basic world.
 
 ```
-$ roslaunch rotors_gazebo mav_hovering_example.launch mav_name:=firefly world_name:=basic
+$ roslaunch rotors_gazebo mav_hovering_example.launch mav_name:=iris world_name:=basic
 ```
 
 > **Note** The first run of gazebo might take considerably long, as it will download some models from an online database. Should you receive a timeout error, try running gazebo by itself (e.g. roslaunch gazebo_ros empty_world.launch ) so it has sufficient time to actually download all of the models.
@@ -166,7 +166,7 @@ We will here also show how to write a stabilizing controller and how you can con
 We will for now just send some constant motor velocities to the multicopter.
 
 ```
-$ rostopic pub /firefly/command/motor_speed mav_msgs/Actuators '{angular_velocities: [100, 100, 100, 100, 100, 100]}'
+$ rostopic pub /iris/command/motor_speed mav_msgs/Actuators '{angular_velocities: [100, 100, 100, 100]}'
 ```
 
 > **Note** The size of the `motor_speed` array should be equal to the number of motors you have in your model of choice (e.g. 6 in the Firefly model).
@@ -180,7 +180,7 @@ You should see (if you unpaused the simulator and you have a multicopter in it),
 You can let the helicopter hover with ground truth odometry (perfect state estimation), by launching:
 
 ```
-$ roslaunch rotors_gazebo mav_hovering_example.launch mav_name:=firefly world_name:=basic
+$ roslaunch rotors_gazebo mav_hovering_example.launch mav_name:=iris world_name:=basic
 ```
 
 #### Create an attitude controller
@@ -191,7 +191,7 @@ $ roslaunch rotors_gazebo mav_hovering_example.launch mav_name:=firefly world_na
 
 Connect a USB joystick to your computer and launch the simulation alongside ROS joystick driver and the RotorS joystick node:
 ```
-$ roslaunch rotors_gazebo mav_with_joy.launch mav_name:=firefly world_name:=basic
+$ roslaunch rotors_gazebo mav_with_joy.launch mav_name:=iris world_name:=basic
 ```
 
 Depending on the type of joystick and the personal preference for operation, you can assign the axis number using the `axis_<roll/pitch/thrust>_` parameter and the axis direction using the `axis_direction_<roll/pitch/thrust>` parameter.
@@ -202,7 +202,7 @@ First, perform a one-time setup of virtual keyboard joystick as described here: 
 
 Launch the simulation with the keyboard interface using the following launch file:
 ```
-$ roslaunch rotors_gazebo mav_with_keyboard.launch mav_name:=firefly world_name:=basic
+$ roslaunch rotors_gazebo mav_with_keyboard.launch mav_name:=iris world_name:=basic
 ```
 
 If everything was setup correctly, an additional GUI should appear with bars indicating the current throttle, roll, pitch, and yaw inputs. While this window is active, the Arrows and W, A, S, D keys will generate virtual joystick inputs, which can then be processed by the RotorS joystick node in the same way as real joystick commands.
