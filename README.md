@@ -137,7 +137,7 @@ Basic Usage
 Launch the simulator with a hex-rotor helicopter model, in our case, the AscTec Firefly in a basic world.
 
 ```
-$ roslaunch rotors_gazebo mav_hovering_example.launch mav_name:=iris world_name:=basic
+$ roslaunch rotors_gazebo mav.launch mav_name:=iris world_name:=basic
 ```
 
 > **Note** The first run of gazebo might take considerably long, as it will download some models from an online database. Should you receive a timeout error, try running gazebo by itself (e.g. roslaunch gazebo_ros empty_world.launch ) so it has sufficient time to actually download all of the models.
